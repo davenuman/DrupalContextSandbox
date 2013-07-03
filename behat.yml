@@ -1,11 +1,18 @@
 default:
+  paths:
+    features: 'features'
   extensions:
     Behat\MinkExtension\Extension:
       goutte: ~
       selenium2: ~
       base_url: http://en.wikipedia.org
-
-    # initialize our extension
-    Drupal\Extension\DrupalExtension:
-      regions:
+    Drupal\DrupalExtension\Extension:
+      blackbox: ~
+      region_map:
+        content: "#content"
+        left header: "#header-left"
         left:  "#mp-left"
+#      text:
+#        username_field: "E-mail"
+      drush:
+        alias: myDrushAlias
